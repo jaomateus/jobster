@@ -14,8 +14,8 @@ const initialState = {
 
 const Register = () => {
 	const [values, setValues] = useState(initialState);
-	const { user, isLoading } = useSelector((store) => store.user)
-	const dispatch = useDispatch()
+	const { user, isLoading } = useSelector((store) => store.user);
+	const dispatch = useDispatch();
 
 	const handleChange = (e) => {
 		const name = e.target.name;
@@ -31,11 +31,11 @@ const Register = () => {
 			toast.error("Please fill out all fields");
 			return;
 		}
-		if(isMember){
-			dispatch(loginUser({email, password}))
-			return
+		if (isMember) {
+			dispatch(loginUser({ email, password }));
+			return;
 		}
-		dispatch(registerUser({name, email, password}))
+		dispatch(registerUser({ name, email, password }));
 	};
 
 	const toglleMember = () => {
@@ -71,7 +71,7 @@ const Register = () => {
 					value={values.password}
 					handleChange={handleChange}
 				/>
-				<button type='submit' className="btn btn-block">
+				<button type='submit' className="btn btn-block" disabled={isLoading}>
 					submit
 				</button>
 				<p>
