@@ -1707,6 +1707,7 @@ const AddJob = () => {
       return;
     }
   };
+
   const handleJobInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
