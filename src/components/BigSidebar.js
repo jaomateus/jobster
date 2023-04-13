@@ -1,12 +1,28 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import NavLinks from "./NavLinks";
+import { useSelector } from "react-redux";
+import Logo from "./Logo";
 
 const BigSidebar = () => {
-  return (
-    <Wrapper>
-      BigSidebar
-    </Wrapper>
-  )
-}
+	const { isSidebarOpen } = useSelector((store) => store.user);
+
+	return (
+		<Wrapper>
+			<div
+				className={
+					isSidebarOpen ? "sidebar-container" : "sidebar-container show-sidebar"
+				}
+			>
+				<div className="content">
+					<header>
+						<Logo />
+					</header>
+					<NavLinks />
+				</div>
+			</div>
+		</Wrapper>
+	);
+};
 
 const Wrapper = styled.aside`
   display: none;
@@ -72,4 +88,4 @@ const Wrapper = styled.aside`
   }
 `;
 
-export default BigSidebar
+export default BigSidebar;
