@@ -1089,7 +1089,7 @@ reducers: {
     logoutUser: (state) => {
       state.user = null;
       state.isSidebarOpen = false;
-      removeUserFromLocalStorage();
+      removeUserFromLocalStorage(); 
     },
     toggleSidebar: (state) => {
       state.isSidebarOpen = !state.isSidebarOpen;
